@@ -7,8 +7,16 @@ set autoread
 let g:mapleader = ","
 command W w !sudo tee % > /dev/null
 
+let dein_dir = expand('~/.cache/dein')
+let dein_plugin_dir = dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(dein_dir)
+    call mkdir(dein_dir, "p")
+    call system('git clone https://github.com/Shougo/dein.vim "' . dein_plugin_dir . '"')
+endif
+
 " Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+let &runtimepath .= ',' . dein_plugin_dir
 
 if dein#load_state('~/.cache/dein')
  call dein#begin('~/.cache/dein')
@@ -28,10 +36,17 @@ if dein#load_state('~/.cache/dein')
  call dein#save_state()
 endif
 
-colorscheme OceanicNext
-
 filetype plugin indent on
 syntax enable
+
+if dein#check_install()
+  let g:dein#install_max_processes = 1
+  call dein#install()
+  let g:dein#install_max_processes = 8
+endif
+
+colorscheme OceanicNext
+
 set rnu
 set wildmenu
 set ignorecase
@@ -64,7 +79,7 @@ set novisualbell
 set tm=500
 nnoremap <leader>. :call NumberToggle()<cr>
 function! NumberToggle()
-  if(&relativenumber == 1)
+ if(&relativenumber == 1)
     set number
     set norelativenumber
   else
