@@ -1,0 +1,8 @@
+brew "ack"
+brew "pyenv"
+brew "neovim"
+brew "stow"
+tap "universal-ctags/universal-ctags"
+tap "herdinger/cask-emacs"
+cask "emacs-without-ctags"
+brew "universal-ctags"
