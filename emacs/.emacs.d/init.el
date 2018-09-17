@@ -25,14 +25,18 @@
 (use-package  evil
   :ensure t
   :init
-  (setq evil-want-integration nil)
   (add-hook 'pdf-view-mode-hook (lambda () (set (make-local-variable 'evil-emacs-state-cursor) (list nil))))
+  (setq evil-want-keybinding nil)
+  (setq evil-move-beyond-eol t)
   :config
-  (evil-mode 1))
+  (evil-mode t))
 (use-package evil-collection
   :ensure t
+  :after (evil)
   :config
-  (evil-collection-init))
+  (setq evil-collection-mode-list (remove 'outline evil-collection-mode-list))
+  (evil-collection-init)
+  )
 (use-package which-key
   :ensure t
   :config
