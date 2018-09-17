@@ -1,0 +1,7 @@
+*
+!.gitignore
+!*/
+!nvim/.config/nvim/init.vim
+!emacs/.emacs.d/init.el
+!emacs/.emacs.d/custom.el
+emacs/.emacs.d/elpa
