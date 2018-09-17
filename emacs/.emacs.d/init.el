@@ -140,6 +140,7 @@ projectile
  :prefix "SPC"
  :non-normal-prefix "M-SPC"
  "p" '(:wk "Projectile" :keymap projectile-command-map)
+ "h" '(:wk "Help" :keymap help-map)
  "o" 'ace-window
  "b" 'ivy-switch-buffer
  "B" 'ibuffer
