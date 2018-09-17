@@ -59,8 +59,6 @@ projectile
   :config
   (projectile-mode +1)
   )
-(use-package syndicate
-  :ensure t)
 (use-package counsel
   :ensure t
   :config
@@ -96,6 +94,8 @@ projectile
         (windmove-find-other-window 'up))
       (enlarge-window arg)
     (shrink-window arg)))
+(defun wrap-eol (f)
+    (end-of-line) (funcall f) (evil-append nil))
 
 (defun hydra-move-splitter-down (arg)
   "Move window splitter down."
@@ -139,4 +139,23 @@ projectile
  "/" 'swiper
  "w" 'hydra-window/body
  )
+(general-define-key
+ :keymaps 'org-mode-map
+ :states '(normal visual insert)
+"C-l" 'org-shiftmetaright
+"C-k" 'org-shiftmetaup
+"C-j" 'org-shiftmetadown
+"C-h" 'org-shiftmetaleft
+ "<M-return>" (lambda () (interactive) (wrap-eol 'org-meta-return))
+ "<M-S-return>" (lambda () (interactive) (wrap-eol (lambda() (org-insert-todo-heading "P")))))
+(general-define-key
+ :keymaps 'org-mode-map
+ :states '(normal visual )
+ ">" 'org-metaright
+"L" 'org-forward-heading-same-level
+"K" 'outline-previous-visible-heading
+"J" 'outline-next-visible-heading
+"H" 'org-backward-heading-same-level
+"U" 'outline-up-heading
+ "<" 'org-metaleft)
  
