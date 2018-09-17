@@ -21,7 +21,9 @@
   :ensure t
   :config
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-envs '("LANG" "LC_CTYPE"))
+    ))
 (use-package  evil
   :ensure t
   :init
