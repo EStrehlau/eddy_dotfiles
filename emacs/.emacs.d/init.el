@@ -46,6 +46,13 @@
   (setq evil-collection-mode-list (remove 'outline evil-collection-mode-list))
   (evil-collection-init)
   )
+(use-package magit
+  :ensure t
+)
+(use-package evil-magit
+  :ensure t
+  :after (evil magit)
+  )
 (use-package which-key
   :ensure t
   :config
