@@ -1,3 +1,6 @@
+(setq gc-cons-threshold (* 50 1000 1000))
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file :noerror)
 (require 'package)
@@ -9,6 +12,10 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(use-package oceanic-theme
+  :ensure t
+  :config
+  (load-theme 'oceanic t))
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
@@ -59,10 +66,6 @@
   )
 (use-package org-noter
   :ensure t )
-(use-package oceanic-theme
-  :ensure t
-  :config
-  (load-theme 'oceanic t))
 (use-package
 projectile
   :ensure t
@@ -83,6 +86,11 @@ projectile
 (use-package org-bullets
   :ensure t
   :hook (org-mode . org-bullets-mode)
+  )
+(use-package elfeed-org
+  :ensure t
+  :config
+  (elfeed-org)
   )
                  
 (defun hydra-move-splitter-left (arg)
