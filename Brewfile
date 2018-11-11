@@ -1,5 +1,4 @@
 brew "ack"
-brew "pyenv"
 brew "neovim"
 brew "stow"
 tap "universal-ctags/universal-ctags"
