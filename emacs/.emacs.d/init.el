@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (setq gc-cons-threshold (* 50 1000 1000))
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -23,7 +24,6 @@
 (setq-default indent-tabs-mode nil)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
-(setq gnus-select-method '(nntp "news.newshosting.com"))
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -123,8 +123,6 @@ projectile
         (windmove-find-other-window 'up))
       (enlarge-window arg)
     (shrink-window arg)))
-(defun wrap-eol (f)
-    (end-of-line) (funcall f) (evil-append nil))
 
 (defun hydra-move-splitter-down (arg)
   "Move window splitter down."
@@ -168,7 +166,15 @@ projectile
  "f" 'counsel-find-file
  "/" 'swiper
  "w" 'hydra-window/body
+ "x" 'counsel-M-x
  )
+(defun org-insertion-wrapper (f)
+  (lambda (count)
+    (interactive "P")
+    (unless count (setq count 1))
+    (dotimes (i count)
+      (funcall f)
+      )))
 (general-define-key
  :keymaps 'org-mode-map
  :states '(normal visual insert)
@@ -176,8 +182,8 @@ projectile
 "C-k" 'org-shiftmetaup
 "C-j" 'org-shiftmetadown
 "C-h" 'org-shiftmetaleft
- "<M-return>" (lambda () (interactive) (wrap-eol 'org-meta-return))
- "<M-S-return>" (lambda () (interactive) (wrap-eol (lambda() (org-insert-todo-heading "P")))))
+ "<M-return>" (org-insertion-wrapper 'org-meta-return)
+ "<M-S-return>" (org-insertion-wrapper (lambda () (org-insert-todo-heading nil))))
 (general-define-key
  :keymaps 'org-mode-map
  :states '(normal visual )
