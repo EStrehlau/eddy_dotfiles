@@ -36,7 +36,6 @@
   :init
   (add-hook 'pdf-view-mode-hook (lambda () (set (make-local-variable 'evil-emacs-state-cursor) (list nil))))
   (setq evil-want-keybinding nil)
-  (setq evil-move-beyond-eol t)
   :config
   (evil-mode t))
 (use-package evil-collection
