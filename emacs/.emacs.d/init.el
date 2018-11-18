@@ -181,8 +181,8 @@ projectile
  :keymaps 'org-mode-map
  :states '(normal visual insert)
 "C-l" 'org-shiftmetaright
-"C-k" 'org-shiftmetaup
-"C-j" 'org-shiftmetadown
+"C-k" 'org-move-subtree-up
+"C-j" 'org-move-subtree-down
 "C-h" 'org-shiftmetaleft
  "<M-return>" (org-insertion-wrapper 'org-meta-return)
  "<M-S-return>" (org-insertion-wrapper (lambda () (org-insert-todo-heading nil))))
