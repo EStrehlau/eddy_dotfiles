@@ -145,6 +145,7 @@ projectile
   ("L" hydra-move-splitter-right "grow right")
   ("+" text-scale-increase)
   ("ü" text-scale-decrease)
+  ("d" delete-window)
   ("/" (lambda ()
                 (interactive)
                 (split-window-right)
