@@ -164,6 +164,13 @@ projectile
  "h" '(:wk "Help" :keymap help-map)
  "o" 'ace-window
  "b" 'ivy-switch-buffer
+ "k" 'org-capture
+ "c" '(:ignore t)
+ "c i" 'org-clock-in
+ "c o" 'org-clock-out
+ "c g" 'org-clock-goto
+ "n" 'org-noter
+ "a" 'org-agenda
  "B" 'ibuffer
  "f" 'counsel-find-file
  "/" 'swiper
@@ -196,4 +203,40 @@ projectile
 "H" 'org-backward-heading-same-level
 "U" 'outline-up-heading
  "<" 'org-metaleft)
+(setq org-capture-templates
+      '(("t" "New Todo tasks.org" entry (file+headline "~/Sync/org/tasks.org" "Inbox")
+         "* TODO %?")
+        ("m" "Manual Cookbook" entry (file "~/org/cookbook.org")
+         "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
+
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "STARTED(s!)" "|" "DONE(d!)")))
+(setq org-log-done 'time)
+(setq org-log-into-drawer t)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-filter-preset '("-someday"))
+(setq org-agenda-include-diary t)
+(setq org-agenda-files (quote
+                        ("~/Sync/org/tasks.org"
+                        "~/Sync/org/journal.org"
+                        "~/Sync/org/notes"
+                        )))
+(setq org-refile-use-outline-path (quote file))
+(setq org-outline-path-complete-in-steps nil)
+(setq org-refile-targets '((org-agenda-files :maxlevel . 9) (nil :maxlevel . 9)))
+(setq org-clock-into-drawer "CLOCK")
+(setq org-clock-in-resume t)
+(setq org-clock-out-when-done nil)
+(setq org-clock-persist t)
+(setq org-agenda-start-with-clockreport-mode t)
+(setq org-clock-report-include-clocking-task t)
+(plist-put org-format-latex-options :scale 2.0)
+(setq org-enforce-todo-dependencies t)
+(general-define-key
+ :definer 'minor-mode
+ :keymaps 'org-noter-doc-mode
+ :states 'normal
+ "i" 'org-noter-insert-note)
+(add-to-list 'org-modules 'org-habit)
  
