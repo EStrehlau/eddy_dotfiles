@@ -90,6 +90,8 @@ projectile
   (global-set-key (kbd "C-x C-f") 'counsel-find-file))
 (use-package ranger
   :ensure t)
+(use-package ivy-hydra
+  :ensure t)
 (use-package org-bullets
   :ensure t
   :hook (org-mode . org-bullets-mode)
