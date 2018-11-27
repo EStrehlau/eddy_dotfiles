@@ -77,6 +77,7 @@ projectile
   :ensure t
   :config
   (projectile-mode +1)
+  (setq projectile-completion-system 'ivy)
   )
 (use-package counsel
   :ensure t
