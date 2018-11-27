@@ -211,7 +211,7 @@ projectile
          "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "STARTED(s!)" "|" "DONE(d!)")))
+      '((sequence "TODO(t)" "STARTED(s!)" "|" "DONE(d!)" "CANCELED(c@)")))
 (setq org-log-done 'time)
 (setq org-log-into-drawer t)
 (setq org-agenda-skip-deadline-if-done t)
