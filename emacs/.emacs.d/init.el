@@ -238,6 +238,8 @@
 (setq org-clock-report-include-clocking-task t)
 (plist-put org-format-latex-options :scale 2.0)
 (setq org-enforce-todo-dependencies t)
+(setq c-basic-offset 4)
+(setq-default tab-width 4)
 (general-define-key
  :definer 'minor-mode
  :keymaps 'org-noter-doc-mode
