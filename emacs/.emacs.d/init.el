@@ -72,8 +72,7 @@
   )
 (use-package org-noter
   :ensure t )
-(use-package
-projectile
+(use-package projectile
   :ensure t
   :config
   (projectile-mode +1)
@@ -88,6 +87,11 @@ projectile
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file))
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode)
+  )
 (use-package ranger
   :ensure t)
 (use-package ivy-hydra
