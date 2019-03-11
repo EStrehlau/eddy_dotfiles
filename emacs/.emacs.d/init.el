@@ -29,7 +29,7 @@
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
-    (exec-path-from-shell-copy-envs '("LANG" "LC_CTYPE"))
+    (exec-path-from-shell-copy-envs '("LANG" "LC_CTYPE" "PKG_CONFIG_PATH"))
     ))
 (use-package rbenv
   :ensure t
