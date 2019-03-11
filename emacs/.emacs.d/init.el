@@ -35,6 +35,10 @@
   :ensure t
   :config
   (global-rbenv-mode))
+(use-package projectile-rails
+  :ensure t
+  :config
+  (projectile-rails-global-mode))
 (use-package  evil
   :ensure t
   :init
@@ -184,6 +188,7 @@
  "f" 'counsel-find-file
  "/" 'swiper
  "w" 'hydra-window/body
+ "r" 'hydra-projectile-rails/body
  "x" 'counsel-M-x
  )
 (defun org-insertion-wrapper (f)
