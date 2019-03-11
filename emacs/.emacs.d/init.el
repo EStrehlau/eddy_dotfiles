@@ -31,6 +31,10 @@
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-envs '("LANG" "LC_CTYPE"))
     ))
+(use-package rbenv
+  :ensure t
+  :config
+  (global-rbenv-mode))
 (use-package  evil
   :ensure t
   :init

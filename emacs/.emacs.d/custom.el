@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(global-rbenv-mode t)
  '(org-M-RET-may-split-line (quote ((default))))
  '(org-babel-load-languages (quote ((shell . t))))
  '(package-selected-packages

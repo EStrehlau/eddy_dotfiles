@@ -1,6 +1,7 @@
 brew "ack"
 brew "neovim"
 brew "stow"
+brew "rbenv"
 tap "universal-ctags/universal-ctags"
 cask "emacs"
 cask "firefox"
