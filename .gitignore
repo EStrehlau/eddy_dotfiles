@@ -1,5 +1,6 @@
 *
 !.gitignore
+!bootstrap.sh
 !*/
 !nvim/.config/nvim/init.vim
 !emacs/.emacs.d/init.el
