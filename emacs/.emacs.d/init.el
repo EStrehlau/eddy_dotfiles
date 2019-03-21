@@ -35,10 +35,6 @@
   :ensure t
   :config
   (global-rbenv-mode))
-(use-package projectile-rails
-  :ensure t
-  :config
-  (projectile-rails-global-mode))
 (use-package  evil
   :ensure t
   :init
@@ -86,6 +82,10 @@
   (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
   )
+(use-package projectile-rails
+  :ensure t
+  :config
+  (projectile-rails-global-mode))
 (use-package counsel
   :ensure t
   :config
@@ -169,6 +169,12 @@
   ("q" nil "exit" :exit t)
   )
 (general-define-key
+ :states '(normal visual)
+ "ü" 'evil-avy-goto-line
+ "ö" 'comment-dwim
+ "ä" 'comment-line
+ )
+(general-define-key
  :states '(normal visual insert emacs)
  :keymaps 'override
  :prefix "SPC"
@@ -182,6 +188,7 @@
  "c i" 'org-clock-in
  "c o" 'org-clock-out
  "c g" 'org-clock-goto
+ "u" 'undo-tree-visualize
  "n" 'org-noter
  "a" 'org-agenda
  "B" 'ibuffer
