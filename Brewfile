@@ -7,5 +7,4 @@ brew "the_silver_searcher"
 tap "universal-ctags/universal-ctags"
 cask "emacs"
 cask "firefox"
-cask "syncthing-app"
 brew "universal-ctags", args: ["HEAD"]
