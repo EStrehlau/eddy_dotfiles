@@ -29,7 +29,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-"colorscheme OceanicNext
+colorscheme OceanicNext
 
 set rnu
 set wildmenu

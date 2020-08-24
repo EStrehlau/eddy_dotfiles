@@ -6,5 +6,13 @@ fi
 
 brew bundle
 
-stow -t "$HOME" bash emacs nvim
+if test -f ~/.zshrc; then
+  echo "Old .zshrc file exists, has been backed up to .zshrc.bak, please check if you need those changes"
+  mv ~/.zshrc ~/.zshrc.bak
+fi
 
+# enable configuration
+stow -t "$HOME" zsh nvim
+
+# install oh my zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
